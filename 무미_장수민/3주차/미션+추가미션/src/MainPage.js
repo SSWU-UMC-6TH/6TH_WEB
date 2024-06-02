@@ -45,7 +45,7 @@ const SpinnerContainer = styled.div`
   height: 100vh;
 `;
 
-const MainPage = ({ movies, loading }) => {
+const MainPage = ({ movies, loading }) => { // loading prop 추가
   return (
     <div>
       <Banner />
