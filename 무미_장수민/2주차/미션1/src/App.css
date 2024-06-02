@@ -1,0 +1,54 @@
+.app {
+  text-align: center;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.input-area {
+  margin-bottom: 20px;
+}
+
+.input-area input {
+  width: 60%;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.input-area button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.lists-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.todo-list, .done-list {
+  text-align: left;
+  padding: 10px;
+  width: 40%; /* Adjust the width as necessary */
+  margin: 0 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional shadow for better separation */
+}
+
+.todo-item, .done-item {
+  background: #f3f3f3;
+  padding: 10px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.done-list h2 {
+  color: #000000;
+  margin-top: 0 10px;
+}
