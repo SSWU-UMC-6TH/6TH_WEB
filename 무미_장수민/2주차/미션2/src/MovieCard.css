@@ -1,0 +1,59 @@
+.movie-card {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    margin: 10px;
+    border-radius: 8px;  /* 경계선을 둥글게 */
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지 비율을 유지하면서 요소 크기에 맞춤 */
+    transition: opacity 0.5s ease;
+  }
+  
+  .movie-details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* 배경을 어둡게 처리 */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  .movie-card:hover .movie-details {
+    opacity: 1;
+  }
+  
+  .movie-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .movie-info h3 {
+    margin-bottom: 5px;
+  }
+  
+  .movie-info p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .movie-rating {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
