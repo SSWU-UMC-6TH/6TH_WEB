@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>UMC Study Plan</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding-top: 50px;
+        text-align: center;
+    }
+    #container {
+        background: white;
+        width: 900px;
+        padding: 20px;
+        margin: 0 auto;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], button {
+        padding: 10px;
+        margin: 5px;
+    }
+    #taskInputContainer {
+        margin-bottom: 20px;
+    }
+    .task-list {
+        display: inline-block;
+        vertical-align: top;
+        width: 45%;
+        margin-right: 2.5%;
+    }
+    .completed-list {
+        display: inline-block;
+        vertical-align: top;
+        width: 45%;
+        margin-left: 2.5%;
+    }
+    .task, .completed-task {
+        background: #e1e1e1;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .task button, .completed-task button {
+        margin-left: 10px;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <h1>UMC Study Plan</h1>
+    <div id="taskInputContainer">
+        <input type="text" id="newTaskInput" placeholder="스터디 작업을 작성해보세요!" />
+        <button onclick="addTask()">해야 할 일 추가</button>
+    </div>
+    <div class="task-list" id="tasks">
+        <h3>해야 할 일</h3>
+    </div>
+    <div class="completed-list" id="completedTasks">
+        <h3>해낸 일</h3>
+    </div>
+</div>
+
+<script>
+    function addTask() {
+        var input = document.getElementById('newTaskInput');
+        var newTask = input.value.trim();
+        if (newTask) {
+            var taskElement = document.createElement('div');
+            taskElement.className = 'task';
+            taskElement.textContent = newTask;
+
+            var completeButton = document.createElement('button');
+            completeButton.textContent = '완료';
+            completeButton.onclick = function() {
+                completeTask(taskElement);
+            };
+
+            taskElement.appendChild(completeButton);
+            document.getElementById('tasks').appendChild(taskElement);
+            input.value = ''; // Clear input after adding
+        }
+    }
+
+    function completeTask(taskElement) {
+        taskElement.removeChild(taskElement.querySelector('button'));
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = '삭제';
+        deleteButton.onclick = function() {
+            deleteTask(taskElement);
+        };
+
+        taskElement.appendChild(deleteButton);
+        taskElement.className = 'completed-task';
+        document.getElementById('completedTasks').appendChild(taskElement);
+    }
+
+    function deleteTask(taskElement) {
+        taskElement.remove();
+    }
+</script>
+</body>
+</html>
